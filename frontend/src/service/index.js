@@ -1,1 +1,1 @@
-export const BASE_URL= "https://coolgpt.onrender.com";
+export const BASE_URL= "https://cool-gpt-blond.vercel.app";
