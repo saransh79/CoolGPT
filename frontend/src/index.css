@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'roboto' ,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #343541;
+}
+
+a{
+  color: #60bf70 !important;
+  text-decoration: none;
+  padding: 20px;
+  margin: 20px;
+}
+a:hover{
+  color: black !important;
+}
+a.active {
+  color: #57d96d !important;
+}
