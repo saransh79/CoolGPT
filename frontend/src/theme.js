@@ -46,6 +46,7 @@ export const colorTokens = {
         background: {
           default: colorTokens.grey[10],
           alt: colorTokens.grey[0],
+          dark: "#000"
         },
       },
       typography: {

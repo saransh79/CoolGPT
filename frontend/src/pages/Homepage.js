@@ -46,9 +46,9 @@ const Homepage = () => {
             />
             <Stack p={3} pt={0}>
               <Typography fontWeight="bold" variant="h5">
-                Scifi Image
+                IMAGE GENERATOR
               </Typography>
-              <Typography variant="h6">Generate science fiction images</Typography>
+              <Typography variant="h6">Generate image of anything with words</Typography>
             </Stack>
           </Card>
         </Box>
@@ -76,7 +76,7 @@ const Homepage = () => {
             />
             <Stack p={3} pt={0}>
               <Typography fontWeight="bold" variant="h5">
-                TEXT SUMAMRY
+                SUMMARISER
               </Typography>
               <Typography variant="h6">
                 Summarize long text into short sentences
@@ -108,7 +108,7 @@ const Homepage = () => {
             />
             <Stack p={3} pt={0}>
               <Typography fontWeight="bold" variant="h5">
-                Paragraph
+                WORDS MAGIC
               </Typography>
               <Typography variant="h6">
                 Generate Paragraph with words
@@ -140,7 +140,7 @@ const Homepage = () => {
             />
             <Stack p={3} pt={0}>
               <Typography fontWeight="bold" variant="h5">
-                Chatbot
+                CHATBOT
               </Typography>
               <Typography variant="h6">Chat With AI Chatbot</Typography>
             </Stack>
@@ -170,10 +170,10 @@ const Homepage = () => {
             />
             <Stack p={3} pt={0}>
               <Typography fontWeight="bold" variant="h5">
-                JS CONVERTER
+                CODE GENERATOR
               </Typography>
               <Typography variant="h6">
-                Translate english to javascript code
+                Generate code by simple prompt
               </Typography>
             </Stack>
           </Card>
@@ -202,7 +202,7 @@ const Homepage = () => {
             />
             <Stack p={3} pt={0}>
               <Typography fontWeight="bold" variant="h5">
-                Spelling Corrector
+                SPELL IT RIGHT
               </Typography>
               <Typography variant="h6">
                 Corrects spelling mistakes in text

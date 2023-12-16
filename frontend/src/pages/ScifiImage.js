@@ -60,10 +60,10 @@ const ScifiImage = () => {
         </Alert>
       </Collapse>
       <form onSubmit={handleSubmit}>
-        <Typography variant="h3">Scifi Image</Typography>
+        <Typography variant="h3">Image Generator</Typography>
 
         <TextField
-          placeholder="add your text"
+          placeholder="Add your text"
           type="text"
           multiline={true}
           required
@@ -85,7 +85,7 @@ const ScifiImage = () => {
           Submit
         </Button>
         <Typography mt={2}>
-          not this tool ? <Link to="/">GO BACK</Link>
+          Not this tool ? <Link to="/">GO BACK</Link>
         </Typography>
       </form>
       <center style={{

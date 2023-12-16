@@ -28,6 +28,7 @@ const Summary = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    settext("");
     try {
       const { data } = await axios.post(`${BASE_URL}/api/v1/openai/edits`, { text });
       console.log(data);

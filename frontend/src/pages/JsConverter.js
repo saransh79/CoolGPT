@@ -11,8 +11,11 @@ import {
   Alert,
   Collapse,
   Card,
-  CircularProgress
+  CircularProgress,
+  ToggleButtonGroup,
+  ToggleButton
 } from "@mui/material";
+
 import { BASE_URL } from "../service";
 
 const JsConverter = () => {
@@ -24,16 +27,19 @@ const JsConverter = () => {
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
   const [isloading, setIsLoading] = useState(false);
+  const [lang, setLang] = useState("");
   //register ctrl
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    settext("");
+    setLang("");
     try {
       const { data } = await axios.post(`${BASE_URL}/api/v1/openai/js-converter`, {
-        text,
+        text, lang
       });
       console.log(data);
-      setCode(data);
+      setCode(data)
     } catch (err) {
       console.log(error);
       if (err.response.data.error) {
@@ -47,6 +53,7 @@ const JsConverter = () => {
     }
     setIsLoading(false)
   };
+
   return (
     <Box
       width={isNotMobile ? "40%" : "80%"}
@@ -62,10 +69,10 @@ const JsConverter = () => {
         </Alert>
       </Collapse>
       <form onSubmit={handleSubmit}>
-        <Typography variant="h3">JS Converter</Typography>
+        <Typography variant="h3">Code Generator</Typography>
 
         <TextField
-          placeholder="add your text"
+          placeholder="Add your text"
           type="text"
           multiline={true}
           required
@@ -76,6 +83,22 @@ const JsConverter = () => {
             settext(e.target.value);
           }}
         />
+        <Typography variant="h5" fontWeight={500} p={1}>Select Language</Typography>
+
+        <ToggleButtonGroup
+          color="primary"
+          value={lang}
+          exclusive
+          onChange={(e) => {
+            setLang(e.target.value);
+          }}
+          aria-label="Platform"
+        >
+          <ToggleButton value="C++" >C++</ToggleButton>
+          <ToggleButton value="Python">Python</ToggleButton>
+          <ToggleButton value="Java">Java</ToggleButton>
+          <ToggleButton value="Javascript">Javascript</ToggleButton>
+        </ToggleButtonGroup>
 
         <Button
           type="submit"
@@ -87,7 +110,7 @@ const JsConverter = () => {
           Generate
         </Button>
         <Typography mt={2}>
-          not this tool ? <Link to="/">GO BACK</Link>
+          Not this tool ? <Link to="/">GO BACK</Link>
         </Typography>
       </form>
       <center style={{
@@ -104,12 +127,17 @@ const JsConverter = () => {
             height: "500px",
             borderRadius: 5,
             borderColor: "natural.medium",
-            bgcolor: "background.default",
+            bgcolor: "background.dark",
             overflow: "auto",
           }}
         >
-          <pre>
-            <Typography p={2}>{code}</Typography>
+          <pre style={{
+            whiteSpace: 'pre-wrap'
+          }}>
+            <Typography p={2} variant="h5" fontWeight={500} color={"#fff"}
+              component="div">
+              {code}
+            </Typography>
           </pre>
         </Card>
       ) : (
@@ -121,12 +149,12 @@ const JsConverter = () => {
             height: "500px",
             borderRadius: 5,
             borderColor: "natural.medium",
-            bgcolor: "background.default",
+            bgcolor: "background.dark",
           }}
         >
           <Typography
             variant="h5"
-            color="natural.main"
+            color="#fff"
             sx={{
               textAlign: "center",
               verticalAlign: "middel",

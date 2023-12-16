@@ -63,7 +63,7 @@ const Paragraph = () => {
         <Typography variant="h3">Generate Paragraph</Typography>
 
         <TextField
-          placeholder="add your text"
+          placeholder="Add your text"
           type="text"
           multiline={true}
           required
@@ -85,7 +85,7 @@ const Paragraph = () => {
           Generate
         </Button>
         <Typography mt={2}>
-          not this tool ? <Link to="/">GO BACK</Link>
+          Not this tool ? <Link to="/">GO BACK</Link>
         </Typography>
       </form>
       <center style={{

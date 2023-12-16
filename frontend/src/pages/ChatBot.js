@@ -21,17 +21,19 @@ const ChatBot = () => {
   const isNotMobile = useMediaQuery("(min-width: 1000px)");
   // states
   const [text, settext] = useState("");
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState([]);
   const [error, setError] = useState("");
   const [isloading, setIsLoading] = useState(false);
   //register ctrl
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    settext("");
     try {
+      setResponse((prev)=>[...prev, `ME: ${text}`])
       const { data } = await axios.post(`${BASE_URL}/api/v1/openai/chatbot`, { text });
       console.log(data);
-      setResponse(data);
+      setResponse((prev)=>[...prev, `BOT: ${data}`]);
     } catch (err) {
       console.log(error);
       if (err.response.data.error) {
@@ -105,7 +107,14 @@ const ChatBot = () => {
             bgcolor: "background.default",
           }}
         >
-          <Typography p={2}>{response}</Typography>
+          <Typography p={2} variant="h4" fontWeight={500}>
+          {response.map((data, index)=>{
+            const isOdd = index %2 === 0;
+              return (
+                <Typography p={1} variant="h5" fontWeight={isOdd && 500}>{data}</Typography>
+              )
+            })}
+            </Typography>
         </Card>
       ) : (
         <Card
