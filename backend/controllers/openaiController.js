@@ -3,13 +3,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const configuration = new Configuration({
-    organization: "org-dwQBl93EfzOqu0v8ro83TnnI",
+    organization: process.env.ORGANIZATION_ID, 
     Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
     apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
 const summaryController = async (req, res) => {
+    console.log(process.env.ORGANIZATION_ID);
     try {
         const { text } = req.body;
         const { data } = await openai.createCompletion({
@@ -56,10 +57,7 @@ const chatbotController = async (req, res) => {
         const { text } = req.body;
         const { data } = await openai.createCompletion({
             model: "text-davinci-003",
-            prompt: `Answer question similar to how yoda from star war would.
-      Me: 'what is your name?'
-      yoda: 'yoda is my name'
-      Me: ${text}`,
+            prompt: `Answer question as an assistant to user as asked in the ${text}`,
             max_tokens: 300,
             temperature: 0.7,
         });
@@ -77,10 +75,10 @@ const chatbotController = async (req, res) => {
 };
 const jsconverterController = async (req, res) => {
     try {
-        const { text } = req.body;
+        const { text , lang} = req.body;
         const { data } = await openai.createCompletion({
             model: "text-davinci-002",
-            prompt: `/* convert these instruction into javascript code \n${text}`,
+            prompt: `/* convert these instruction into ${lang} code \n${text}`,
             max_tokens: 400,
             temperature: 0.25,
         });
@@ -100,7 +98,7 @@ const scifiImageController = async (req, res) => {
     try {
         const { text } = req.body;
         const { data } = await openai.createImage({
-            prompt: `generate a scifi image of ${text}`,
+            prompt: `generate a sketch image of ${text}`,
             n: 1,
             size: "512x512",
         });
