@@ -98,7 +98,7 @@ const scifiImageController = async (req, res) => {
     try {
         const { text } = req.body;
         const { data } = await openai.createImage({
-            prompt: `generate a sketch image of ${text}`,
+            prompt: `generate an image of ${text}`,
             n: 1,
             size: "512x512",
         });
