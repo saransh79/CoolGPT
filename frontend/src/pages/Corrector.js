@@ -109,9 +109,14 @@ const Summary = () => {
             borderRadius: 5,
             borderColor: "natural.medium",
             bgcolor: "background.default",
+            overflowY: "auto"
           }}
         >
-          <Typography p={2}>{answer}</Typography>
+          <pre style={{
+            whiteSpace: 'pre-wrap'
+          }}>
+            <Typography p={2}>{answer}</Typography>F
+          </pre>
         </Card>
       ) : (
         <Card

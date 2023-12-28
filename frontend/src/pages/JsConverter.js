@@ -128,13 +128,13 @@ const JsConverter = () => {
             borderRadius: 5,
             borderColor: "natural.medium",
             bgcolor: "background.dark",
-            overflow: "auto",
+            overflowY: "auto",
           }}
         >
           <pre style={{
             whiteSpace: 'pre-wrap'
           }}>
-            <Typography p={2} variant="h5" fontWeight={500} color={"#fff"}
+            <Typography p={2} variant="h6" color={"#fff"}
               component="div">
               {code}
             </Typography>

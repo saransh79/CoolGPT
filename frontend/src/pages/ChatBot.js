@@ -65,7 +65,7 @@ const ChatBot = () => {
         <Typography variant="h3">Ask with Chatbot</Typography>
 
         <TextField
-          placeholder="add your text"
+          placeholder="Add your text"
           type="text"
           multiline={true}
           required
@@ -105,15 +105,20 @@ const ChatBot = () => {
             borderRadius: 5,
             borderColor: "natural.medium",
             bgcolor: "background.default",
+            overflowY: "auto"
           }}
         >
           <Typography p={2} variant="h4" fontWeight={500}>
           {response.map((data, index)=>{
             const isOdd = index %2 === 0;
               return (
+                <pre style={{
+            whiteSpace: 'pre-wrap'
+          }}>
                 <Typography p={1} variant="h5" fontWeight={isOdd && 500}>{data}</Typography>
+                </pre>
               )
-            })}
+            }).reverse()}
             </Typography>
         </Card>
       ) : (

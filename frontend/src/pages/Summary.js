@@ -23,7 +23,7 @@ const Summary = () => {
   const [text, settext] = useState("");
   const [summary, setSummary] = useState("");
   const [error, setError] = useState("");
-  const [isloading, setIsLoading]= useState(false);
+  const [isloading, setIsLoading] = useState(false);
   //register ctrl
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -103,9 +103,14 @@ const Summary = () => {
             borderRadius: 5,
             borderColor: "natural.medium",
             bgcolor: "background.default",
+            overflowY: "auto"
           }}
         >
-          <Typography p={2}>{summary}</Typography>
+          <pre style={{
+            whiteSpace: 'pre-wrap'
+          }}>
+            <Typography p={2}>{summary}</Typography>
+          </pre>
         </Card>
       ) : (
         <Card
